@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{%block title%}listagem{% endblock %}
+
+{% block content %}
+    <div class="container text-center ">
+        <h1>Lista de Despesas</h1>
+        
+        
+                {% for expense in expenses  %}
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          {{expense.title}} - {{expense.categoryfk}} 
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          {{ expense.describe }}  <strong> R$ {{ expense.value }}</strong> 
+                          {% if expense.status_choice == 'Pendente' %}
+                            <button  style="height: 40px; "  class="btn btn-primary" type="button" disabled>
+                                <span  style="height: 20px; width: 20px; margin-right: -20px;" class="spinner-grow text-warning" aria-hidden="true"></span>
+                                <span style="margin-left:20px;" role="status">{{ expense.status_choice }}</span>
+                            </button>
+
+                           {% elif expense.status_choice == 'Atrasado' %}
+                                <button  style="height: 40px; "  class="btn btn-primary" type="button" disabled>
+                                    <span  style="height: 20px; width: 20px; margin-right: -20px;" class="spinner-grow text-danger" aria-hidden="true"></span>
+                                    <span style="margin-left:20px;" role="status">{{ expense.status_choice }}</span>
+                                </button>
+
+                            {% elif expense.status_choice == 'Pago' %}
+                                <button  style="height: 40px; margin-right: -45%;"  class="btn btn-primary" type="button" disabled>
+                                    <span  style="height: 20px; width: 20px;" class="spinner-grow text-success" aria-hidden="true"></span>
+                                    <span style="margin-left:20px;" role="status">{{ expense.status_choice }}</span>
+                                </button>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div style="margin: 15px;">
+                        <a class="btn btn-warning" href="{% url 'expense_update' expense.id %}">Editar</a>
+                        <a class="btn btn-danger"  href="{% url 'expense_delete' expense.id %}">Deletar</a>
+                    </div>
+                {% endfor %}
+           
+            
+            <a class="btn btn-primary" href="{% url 'expense_create'%}"> Crie uma nova Despesa</a>
+    </div>
+{% endblock %}

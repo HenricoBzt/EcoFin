@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}delete{% endblock %}
+
+{% block content %}
+    <div class="alert alert-danger" role="alert">
+        <form method="POST"> {% csrf_token %}
+            <p style="color: red;"> Certeza que deseja deletar esta Despesa? {{expense.title}} </p>
+            {{form}}
+            <input  style="border-radius: 20px; border: none;" type="submit" value="Confirmar" >
+        </form>
+        <a  style="margin-top: 10px;" class="btn btn-info" href="{% url 'expense_list' %}">Voltar</a>
+    </div>
+   
+{% endblock %}

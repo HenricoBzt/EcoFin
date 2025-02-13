@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="width: 400px;">
+        <h2 class="text-center">Registro</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Usuário</label>
+                <input type="text" name="username" id="id_username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_password1" class="form-label">Senha</label>
+                <input type="password" name="password1" id="id_password1" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_password2" class="form-label">Senha</label>
+                <input type="password" name="password2" id="id_password2" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Registrar</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="{% url 'login' %}">Já tem uma conta? Faça login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

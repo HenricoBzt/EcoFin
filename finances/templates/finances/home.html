@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+{% block title %}Home - EcoFin{% endblock %}
+
+{% block content %}
+    <div class="container text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="fw-bold mb-3 text-primary">📊 Bem-vindo ao EcoFin</h1>
+                <p class="lead text-muted">
+                    Gerencie suas finanças de forma simples e eficiente. 
+                    Controle seus gastos, acompanhe suas despesas e tome decisões financeiras mais inteligentes.
+                </p>
+                <a href="{% url 'expense_list' %}" class="btn btn-primary btn-lg mt-3">
+                    💰 Ver Despesas
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
