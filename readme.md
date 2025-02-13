@@ -6,7 +6,6 @@ EcoFin é um sistema de monitoramento financeiro desenvolvido em Django, com foc
 
 - **Cadastro de Despesas**: Registre suas despesas com informações como valor, descrição, categoria e status (Pago, Pendente, Atrasado).
 - **Categorias de Despesas**: Organize suas despesas por categorias para facilitar a análise.
-- **Relatórios Financeiros**: Gere relatórios financeiros com base nas despesas registradas.
 - **Funcionalidades Futuras**: Planeja-se a implementação de gráficos interativos para visualização dos gastos e melhor controle financeiro e criação de relatórios financeiros com base nas despesas registradas..
 
 ## Tecnologias Utilizadas
